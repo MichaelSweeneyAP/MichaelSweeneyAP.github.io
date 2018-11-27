@@ -43,7 +43,7 @@ function logDataLayer() {
     }
 }
 
-setTimeout(send_message_to_native, 3000);
-setTimeout(track_web_headline_change, 3000);
+setTimeout(send_message_to_native, 1000);
+setTimeout(track_web_headline_change, 1000);
 selection.on("change", send_message_to_native);
 selection.on("change", track_web_headline_change);
