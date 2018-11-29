@@ -33,9 +33,13 @@ function track_web_headline_change() {
     }
     var choice = selection.val();
     window.dataLayer.push({
-                          "event": "logHeadlineChangeWeb",
-                          "headline": choice
-                          });
+      "event": "logHeadlineChangeWeb",
+      "headline": choice
+    });
+    window.dataLayer.push({
+      "event": "altHeadlineChangeWeb",
+      "headline": choice
+    });
     logDataLayer();
 }
 
