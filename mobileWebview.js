@@ -31,9 +31,10 @@ function track_web_headline_change() {
     if(!window.dataLayer) {
         sendErrorToNative("no dataLayer exists");
     }
+    var choice = selection.val();
     window.dataLayer.push({
                           "event": "logHeadlineChangeWeb",
-                          "headline": "some selection"
+                          "headline": choice
                           });
     logDataLayer();
 }
