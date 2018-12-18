@@ -10,7 +10,8 @@ function rerouteTracking() {
   var handler = window.webkit.messageHandlers;
   var base = window.webkit.messageHandlers.firebase;
 
-  sendErrorToNative("kit: " + kit " handler: " + handler + " base: " + base);
+  sendErrorToNative("kit: " + kit + " handler: " + handler + " base: " + base);
+
   if (isMobileDevice()) {
     send_message_to_native();
   } else {
