@@ -6,6 +6,11 @@ function set_headline (text) {
 }
 
 function rerouteTracking() {
+  var kit = window.webkit;
+  var handler = window.webkit.messageHandlers;
+  var base = window.webkit.messageHandlers.firebase;
+
+  sendErrorToNative("kit: " + kit " handler: " + handler + " base: " + base);
   if (isMobileDevice()) {
     send_message_to_native();
   } else {
@@ -17,13 +22,7 @@ function send_message_to_native() {
     var message = selection.val();
 //    var message = "superCoolMessage"
     set_headline("asked for " + message + "...");
-
-    if (isMobileDevice()) {
-      sendErrorToNative("value of window orientation = " + isMobileDevice())
-        window.webkit.messageHandlers.observe.postMessage(message);
-    } else {
-
-    }
+    window.webkit.messageHandlers.observe.postMessage(message);
 }
 
 function track_web_headline_change() {
@@ -58,7 +57,14 @@ function logDataLayer() {
     }
 }
 
-setTimeout(send_message_to_native, 1000);
-setTimeout(track_web_headline_change, 1000);
-selection.on("change", send_message_to_native);
-selection.on("change", track_web_headline_change);
+setTimeout(rerouteTracking, 1000);
+selection.on("change", rerouteTracking);
+
+
+
+
+if (isMobileDevice()) {
+    window.webkit.messageHandlers.observe.postMessage(data);
+} else {
+
+}
