@@ -12,11 +12,12 @@ function rerouteTracking() {
 
   sendErrorToNative("kit: " + kit + " handler: " + handler + " base: " + base);
 
-  if (isMobileDevice()) {
-    send_message_to_native();
-  } else {
-    track_web_headline_change();
-  }
+  // if (isMobileDevice()) {
+  //   send_message_to_native();
+  // } else {
+  //   track_web_headline_change();
+  // }
+  track_web_headline_change();
 }
 
 function send_message_to_native() {
@@ -60,12 +61,3 @@ function logDataLayer() {
 
 setTimeout(rerouteTracking, 1000);
 selection.on("change", rerouteTracking);
-
-
-
-
-if (isMobileDevice()) {
-    window.webkit.messageHandlers.observe.postMessage(data);
-} else {
-
-}
