@@ -6,6 +6,9 @@ function set_headline (text) {
 }
 
 function rerouteTracking() {
+  var message = selection.val();
+
+  set_headline("asked for " + message + "...");
   track_web_headline_change();
 }
 
