@@ -21,17 +21,26 @@ function track_web_headline_change() {
     if(!window.dataLayer) {
         sendErrorToNative("no dataLayer exists");
     }
+
+    var action;
+    if (isMobileDevice()) {
+      action = "mobile"
+    } else {
+      action = "desktop"
+    }
+
     var choice = selection.val();
     window.dataLayer.push({
       "event": "logHeadlineChangeWeb",
-      "headline": choice
+      "headline": choice,
+      "customAction": action
     });
     logDataLayer();
 }
 
-// function isMobileDevice() {
-//     return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
-// }
+function isMobileDevice() {
+    return (typeof window.orientation !== "undefined") || (navigator.userAgent.indexOf('IEMobile') !== -1);
+}
 
 function sendErrorToNative(msg) {
     window.webkit.messageHandlers.observe.postMessage(msg);
