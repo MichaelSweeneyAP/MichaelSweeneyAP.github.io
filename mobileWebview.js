@@ -6,16 +6,6 @@ function set_headline (text) {
 }
 
 function rerouteTracking() {
-  // var kit = window.webkit;
-  // var handler = window.webkit.messageHandlers;
-  // var base = window.webkit.messageHandlers.firebase;
-  // sendErrorToNative("kit: " + kit + " handler: " + handler + " base: " + base);
-
-  // if (isMobileDevice()) {
-  //   send_message_to_native();
-  // } else {
-  //   track_web_headline_change();
-  // }
   track_web_headline_change();
 }
 
