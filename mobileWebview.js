@@ -46,7 +46,9 @@ function isMobileDevice() {
 }
 
 function sendErrorToNative(msg) {
-    window.webkit.messageHandlers.observe.postMessage(msg);
+    if (window.webkit.messageHandlers) {
+      window.webkit.messageHandlers.observe.postMessage(msg);
+    }
 }
 
 function logDataLayer() {
