@@ -16,7 +16,7 @@ function send_message_to_native() {
     var message = selection.val();
 
     set_headline("asked for " + message + "...");
-    if (window.webkit.messageHandlers) {
+    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.firebase) {
       window.webkit.messageHandlers.observe.postMessage(message);
     }
 }
