@@ -16,7 +16,9 @@ function send_message_to_native() {
     var message = selection.val();
 
     set_headline("asked for " + message + "...");
-    window.webkit.messageHandlers.observe.postMessage(message);
+    if (window.webkit.messageHandlers) {
+      window.webkit.messageHandlers.observe.postMessage(message);
+    }
 }
 
 function track_web_headline_change() {
