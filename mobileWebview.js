@@ -48,8 +48,10 @@ function isMobileDevice() {
 }
 
 function sendErrorToNative(msg) {
-    if (window.webkit.messageHandlers) {
+    if (window.webkit && window.webkit.messageHandlers && window.webkit.messageHandlers.firebase) {
       window.webkit.messageHandlers.observe.postMessage(msg);
+    } else {
+      console.log("no msg for native, we are in a browser")
     }
 }
 
